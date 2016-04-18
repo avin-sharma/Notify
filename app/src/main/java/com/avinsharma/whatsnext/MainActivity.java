@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         //For Reference see this https://github.com/roughike/BottomBar
 
-        mBottomBar = BottomBar.attach(findViewById(R.id.activity_main), savedInstanceState);
+        mBottomBar = BottomBar.attach(findViewById(R.id.container), savedInstanceState);
         mBottomBar.setItemsFromMenu(R.menu.bottombar_menu, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
