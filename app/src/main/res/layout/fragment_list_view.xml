@@ -5,22 +5,48 @@
     android:orientation="vertical"
     tools:context=".GroupsListView">
 
-
-    <ListView
-        android:id="@+id/listview_groups_following"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Following"
+            android:textColor="#7B1FA2"
+            android:padding="8dp"/>
+
+        <ListView
+            android:id="@+id/listview_groups_following"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#000000"/>
+        android:background="#000000" />
 
-    <ListView
-        android:id="@+id/listview_groups_created"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_weight="1">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groups Created"
+            android:textColor="#7B1FA2"
+            android:padding="8dp"/>
+
+        <ListView
+            android:id="@+id/listview_groups_created"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>
