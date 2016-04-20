@@ -3,18 +3,17 @@
     android:id="@+id/bottombar_menu">
     <item
         android:id="@+id/bottomBarItemOne"
-        android:title="Recents"
-        />
+        android:icon="@drawable/groups_1x"
+        android:title="Groups" />
     <item
         android:id="@+id/bottomBarItemTwo"
-        android:title="two"
-        />
+        android:icon="@drawable/profile_1x"
+        android:title="Profile" />
     <item
-    android:id="@+id/bottomBarItemThree"
-    android:title="Three"
-    />
+        android:id="@+id/bottomBarItemThree"
+        android:icon="@drawable/notification_1x"
+        android:title="Notifications" />
     <item
         android:id="@+id/bottomBarItemFour"
-        android:title="Four"
-        />
+        android:title="Settings" />
 </menu>

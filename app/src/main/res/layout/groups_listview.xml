@@ -10,6 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:id="@+id/group_title" />
 
     <TextView

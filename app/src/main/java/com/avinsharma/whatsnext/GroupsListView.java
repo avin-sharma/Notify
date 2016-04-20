@@ -41,9 +41,9 @@ public class GroupsListView extends Fragment {
 
     private ArrayList<Groups> generateData(){
         ArrayList<Groups> items = new ArrayList<Groups>();
-        items.add(new Groups("Item 1","First Item on the list"));
-        items.add(new Groups("Item 2","Second Item on the list"));
-        items.add(new Groups("Item 3","Third Item on the list"));
+        items.add(new Groups("Physics","First Item on the list"));
+        items.add(new Groups("Chemistry","Second Item on the list"));
+        items.add(new Groups("Maths","Third Item on the list"));
         items.add(new Groups("Item 1","First Item on the list"));
         items.add(new Groups("Item 2","Second Item on the list"));
         items.add(new Groups("Item 3","Third Item on the list"));
@@ -56,9 +56,9 @@ public class GroupsListView extends Fragment {
 
     private ArrayList<Groups> generateDatatwo(){
         ArrayList<Groups> items = new ArrayList<Groups>();
-        items.add(new Groups("List 2 Item 1","First Item on the list"));
-        items.add(new Groups("List 2 Item 2","Second Item on the list"));
-        items.add(new Groups("List 2 Item 3","Third Item on the list"));
+        items.add(new Groups("Photography","First Item on the list"));
+        items.add(new Groups("Maths Tuition","Second Item on the list"));
+        items.add(new Groups("Yolo","Third Item on the list"));
         items.add(new Groups("List 2 Item 1","First Item on the list"));
         items.add(new Groups("List 2 Item 2","Second Item on the list"));
         items.add(new Groups("List 2 Item 3","Third Item on the list"));items.add(new Groups("List 2 Item 1","First Item on the list"));
