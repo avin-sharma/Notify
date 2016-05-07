@@ -1,4 +1,4 @@
-package com.avinsharma.whatsnext;
+package com.avinsharma.notify;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

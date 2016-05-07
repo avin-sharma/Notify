@@ -1,4 +1,4 @@
-package com.avinsharma.whatsnext;
+package com.avinsharma.notify;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if (menuItemId == R.id.bottomBarItemOne) {
                     // The user selected item number one.
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, new GroupsListView())
+                                .replace(R.id.container, new GroupsListViewFragment())
                                 .commit();
 
                     //TODO:Add icons and fragments/activities for switching between screens
