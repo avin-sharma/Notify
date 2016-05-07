@@ -56,16 +56,14 @@ public class GroupDetailsFragment extends Fragment {
                         transaction.replace(R.id.notification_container, new assignmentFragment());
                         transaction.addToBackStack(null);
                         transaction.commit();
-                        Log.v("GroupDetailFragment","Backstack :"+ getFragmentManager().getBackStackEntryCount());
-                        break;
                     case "notification":
                         getFragmentManager().beginTransaction()
-                                .replace(R.id.notification_container, new notificationFragment())
+                                .replace(R.id.notification_container, new notificationFragment()).addToBackStack(null)
                                 .commit();
                         break;
                     case "test":
                         getFragmentManager().beginTransaction()
-                                .replace(R.id.notification_container, new testFragment())
+                                .replace(R.id.notification_container, new testFragment()).addToBackStack(null)
                                 .commit();
                         break;
                 }
