@@ -40,15 +40,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:divider="@null"
         />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <com.github.clans.fab.FloatingActionMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"
-        app:layout_anchor="@id/listview_notifications"
-        app:layout_anchorGravity="bottom|end" />
+        app:menu_colorNormal="@color/colorAccent"
+        android:layout_gravity="bottom|right"
+        android:id="@+id/fabm">
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/assignment_grey_1x"
+            app:fab_colorNormal="#FFFFFF"
+            app:fab_size="mini"
+            android:id="@+id/fab1"/>
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test_grey_1x"
+            app:fab_colorNormal="#FFFFFF"
+            app:fab_size="mini"
+            android:id="@+id/fab2"/>
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/notification_grey_1x"
+            app:fab_colorNormal="#FFFFFF"
+            app:fab_size="mini"
+            android:id="@+id/fab3"/>
+    </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>

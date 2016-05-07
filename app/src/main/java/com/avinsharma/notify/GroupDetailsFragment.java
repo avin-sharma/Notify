@@ -8,6 +8,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 
@@ -74,20 +77,32 @@ public class GroupDetailsFragment extends Fragment {
         collapsingToolbarLayout.setTitle(getActivity().getIntent().getStringExtra(Intent.EXTRA_TEXT));
 
         if (getActivity().getIntent().getStringExtra("Type").equals("Created")) {
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
+            com.github.clans.fab.FloatingActionButton fab1=(com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.fab1);
+            fab1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                public void onClick(View v) {
+                    getFragmentManager().beginTransaction().replace(R.id.notification_container, new createAssignmentFragment()).addToBackStack(null).commit();
+                }
+            });
+            com.github.clans.fab.FloatingActionButton fab2=(com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.fab2);
+            fab2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().beginTransaction().replace(R.id.notification_container, new createTestFragment()).addToBackStack(null).commit();
+                }
+            });
+            com.github.clans.fab.FloatingActionButton fab3=(com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.fab3);
+            fab3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().beginTransaction().replace(R.id.notification_container, new createNotificationFragment()).addToBackStack(null).commit();
                 }
             });
         } else if (getActivity().getIntent().getStringExtra("Type").equals("Followed")) {
 
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+            FloatingActionMenu fabm = (FloatingActionMenu) view.findViewById(R.id.fabm);
             CoordinatorLayout col = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout);
-            col.removeView(fab);
-
+            col.removeView(fabm);
         }
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
