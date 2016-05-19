@@ -7,11 +7,21 @@ public class Notifications {
     private String title;
     private String description;
     private String type;
+    private String groupName;
 
     public Notifications(String title, String description, String type) {
         this.title = title;
         this.description = description;
         this.type = type;
+    }
+
+
+    public Notifications(String title, String description, String type, String groupName) {
+        this.title = title;
+        this.description = description;
+        this.type = type;
+        this.groupName = groupName;
+
     }
 
     public String getTitle() {
@@ -36,5 +46,9 @@ public class Notifications {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getGroupName() {
+        return groupName;
     }
 }

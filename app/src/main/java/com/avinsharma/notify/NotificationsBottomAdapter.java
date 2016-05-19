@@ -1,6 +1,8 @@
 package com.avinsharma.notify;
 
+
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +13,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Avin on 02-05-2016.
+ * A simple {@link Fragment} subclass.
  */
-public class NotificationsAdapter extends ArrayAdapter<Notifications>{
+public class NotificationsBottomAdapter extends ArrayAdapter<Notifications> {
+
+
     Context context;
     ArrayList<Notifications> notificationsArrayList;
 
-    public NotificationsAdapter(Context context, ArrayList<Notifications> notificationsArrayList){
+    public NotificationsBottomAdapter(Context context, ArrayList<Notifications> notificationsArrayList){
         super(context,R.layout.notification_listview, notificationsArrayList);
 
         this.context = context;
@@ -42,22 +46,30 @@ public class NotificationsAdapter extends ArrayAdapter<Notifications>{
             viewHolder.icon = (ImageView) convertView.findViewById(R.id.notification_icon);
             convertView.setTag(viewHolder);
         }
-        else{ 
+        else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
         Notifications notifications = getItem(position);
-        viewHolder.title.setText(notifications.getTitle());
-        viewHolder.description.setText(notifications.getDescription());
+        viewHolder.title.setText(notifications.getGroupName());
         switch (notifications.getType()){
             case "assignment": viewHolder.icon.setImageResource(R.drawable.assignment_1x);
+                String string = "Assignment: "+notifications.getTitle();
+                viewHolder.description.setText(string);
                 break;
             case "notification": viewHolder.icon.setImageResource(R.drawable.reminder_1x);
+                string = "Notification: "+notifications.getTitle();
+                viewHolder.description.setText(string);
                 break;
             case "test": viewHolder.icon.setImageResource(R.drawable.test_1x);
+                string = "Test: "+notifications.getTitle();
+                viewHolder.description.setText(string);
                 break;
+            //TODO: add case for invite
         }
 
         return convertView;
     }
+
+
 }

@@ -52,13 +52,12 @@ public class GroupDetailsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (((Notifications) parent.getAdapter().getItem(position)).getType()) {
-                    //TODO: Add fragments for each case
                     case "assignment":
-                        Fragment fragment = new assignmentFragment();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.notification_container, new assignmentFragment());
-                        transaction.addToBackStack(null);
-                        transaction.commit();
+                        Log.v("GDF","working");
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.notification_container, new assignmentFragment()).addToBackStack(null)
+                                .commit();
+                        break;
                     case "notification":
                         getFragmentManager().beginTransaction()
                                 .replace(R.id.notification_container, new notificationFragment()).addToBackStack(null)

@@ -1,8 +1,8 @@
 <android.support.design.widget.CoordinatorLayout
 
-     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,37 +39,39 @@
         android:id="@+id/listview_notifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:divider="@null"
-        />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fabm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:menu_colorNormal="@color/colorAccent"
         android:layout_gravity="bottom|right"
-        android:id="@+id/fabm">
+        app:menu_colorNormal="@color/colorAccent">
+
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/assignment_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini"
-            android:id="@+id/fab1"/>
+            app:fab_size="mini" />
+
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/test_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini"
-            android:id="@+id/fab2"/>
+            app:fab_size="mini" />
+
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/notification_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini"
-            android:id="@+id/fab3"/>
+            app:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.avinsharma.notify.testFragment">
+    tools:context="com.avinsharma.notify.testFragment"
+    android:id="@+id/linear_test">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_assignment"
+        android:id="@+id/toolbar_test"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"

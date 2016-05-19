@@ -42,18 +42,22 @@ public class MainActivity extends AppCompatActivity {
 
                     //TODO:Add icons and fragments/activities for switching between screens
                 }
-                /*if (menuItemId == R.id.bottomBarItemTwo) {
+                if (menuItemId == R.id.bottomBarItemTwo) {
                     // The user selected item number one.
-                    //TODO:Add icons and fragments/activities for switching between screens
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new Profile())
+                            .commit();
                 }
                 if (menuItemId == R.id.bottomBarItemThree) {
                     // The user selected item number one.
-                    //TODO:Add icons and fragments/activities for switching between screens
+                    getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, new BottomNotificationFragment() )
+                                .commit();
                 }
                 if (menuItemId == R.id.bottomBarItemFour) {
                     // The user selected item number one.
                     //TODO:Add icons and fragments/activities for switching between screens
-                }*/
+                }
             }
 
             @Override

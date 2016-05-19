@@ -7,14 +7,12 @@ public class Groups {
 
     private String title;
     private String description;
-    //TODO: Instead of integer
-    private int type;
 
 
-    public Groups(String title, String description, int type) {
+
+    public Groups(String title, String description) {
         this.title = title;
         this.description = description;
-        this.type = type;
     }
 
     public String getTitle() {
@@ -25,7 +23,4 @@ public class Groups {
         return description;
     }
 
-    public int getType() {
-        return type;
-    }
 }
