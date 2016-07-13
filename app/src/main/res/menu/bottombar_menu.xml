@@ -13,7 +13,5 @@
         android:id="@+id/bottomBarItemThree"
         android:icon="@drawable/notification_1x"
         android:title="Notifications" />
-    <item
-        android:id="@+id/bottomBarItemFour"
-        android:title="Settings" />
+
 </menu>

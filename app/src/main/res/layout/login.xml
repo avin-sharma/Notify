@@ -10,12 +10,5 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:paddingTop="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_button"
-        android:layout_alignLeft="@+id/login_button"
-        app:buttonSize="wide"/>
+
 </RelativeLayout>

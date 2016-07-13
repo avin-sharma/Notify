@@ -7,12 +7,16 @@ public class Groups {
 
     private String title;
     private String description;
+    private String key;
 
+    public Groups() {
 
+    }
 
-    public Groups(String title, String description) {
+    public Groups(String title, String description, String key) {
         this.title = title;
         this.description = description;
+        this.key = key;
     }
 
     public String getTitle() {
@@ -23,4 +27,7 @@ public class Groups {
         return description;
     }
 
+    public String getKey() {
+        return key;
+    }
 }

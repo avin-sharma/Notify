@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ import java.util.List;
  */
 public class notificationFragment extends Fragment {
 
+    TextView title;
+    TextView description;
 
     public notificationFragment() {
         // Required empty public constructor
@@ -34,16 +37,26 @@ public class notificationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
 
+
+
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_notification);
 
         if(taskInfo.get(0).topActivity.getClassName().equals("com.avinsharma.notify.MainActivity")) {
 
+            Notifications notification =((MainActivity)getActivity()).getCurrentNotification();
+            title =(TextView) view.findViewById(R.id.title);
+            description =(TextView) view.findViewById(R.id.description);
+            title.setText(notification.getTitle());
+            description.setText(notification.getDescription());
+
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear_notification);
              linearLayout.removeView(toolbar);
         }
         else if(taskInfo.get(0).topActivity.getClassName().equals("com.avinsharma.notify.GroupsActivity")) {
+
+            Notifications notification =((GroupsActivity)getActivity()).getCurrentNotification();
 
 
             //for crate home button
@@ -58,6 +71,11 @@ public class notificationFragment extends Fragment {
                     getFragmentManager().popBackStack();
                 }
             });
+
+            title =(TextView) view.findViewById(R.id.title);
+            description =(TextView) view.findViewById(R.id.description);
+            title.setText(notification.getTitle());
+            description.setText(notification.getDescription());
 
             Window window = activity.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

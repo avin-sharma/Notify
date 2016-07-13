@@ -1,14 +1,14 @@
 package com.avinsharma.notify;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 public class GroupsActivity extends AppCompatActivity {
+
+    Notifications currentNotification;
 
 
     @Override
@@ -16,7 +16,7 @@ public class GroupsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groups);
         Fragment fragment = new GroupDetailsFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();;
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.notification_container, new GroupDetailsFragment());
         transaction.commit();
     }
@@ -33,9 +33,11 @@ public class GroupsActivity extends AppCompatActivity {
     }
 
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment
-                newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public Notifications getCurrentNotification() {
+        return currentNotification;
+    }
+
+    public void setCurrentNotification(Notifications currentNotification) {
+        this.currentNotification = currentNotification;
     }
 }

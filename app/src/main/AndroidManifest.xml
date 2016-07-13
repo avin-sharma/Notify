@@ -55,6 +55,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.avinsharma.notify.MainActivity" />
         </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".CreateGroupActivity" />
+        <activity
+            android:name=".AddDialog"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".InviteDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
     </application>
 
 </manifest>

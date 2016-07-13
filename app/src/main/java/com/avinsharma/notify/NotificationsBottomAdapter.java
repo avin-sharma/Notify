@@ -65,6 +65,11 @@ public class NotificationsBottomAdapter extends ArrayAdapter<Notifications> {
                 string = "Test: "+notifications.getTitle();
                 viewHolder.description.setText(string);
                 break;
+            case "invite":viewHolder.icon.setImageResource(R.drawable.com_facebook_button_like_icon_selected);
+                string = "Invite from " +notifications.getGroupName();
+                viewHolder.title.setText(string);
+                viewHolder.description.setText(notifications.getDescription());
+                break;
             //TODO: add case for invite
         }
 

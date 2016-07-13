@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -23,6 +24,9 @@ import java.util.List;
  */
 public class testFragment extends Fragment {
 
+    TextView title;
+    TextView date;
+    TextView description;
 
     public testFragment() {
         // Required empty public constructor
@@ -34,16 +38,29 @@ public class testFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test, container, false);
 
+        //TODO: add activity specific get/set current notification
+
+
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_test);
 
         if(taskInfo.get(0).topActivity.getClassName().equals("com.avinsharma.notify.MainActivity")) {
 
+            Notifications notification =((MainActivity)getActivity()).getCurrentNotification();
+            title =(TextView) view.findViewById(R.id.title);
+            date = (TextView) view.findViewById(R.id.date);
+            description =(TextView) view.findViewById(R.id.description);
+            title.setText(notification.getTitle());
+            description.setText(notification.getDescription());
+            date.setText(notification.getDate());
+
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear_test);
             linearLayout.removeView(toolbar);
         }
         else if(taskInfo.get(0).topActivity.getClassName().equals("com.avinsharma.notify.GroupsActivity")) {
+
+            Notifications notification =((GroupsActivity)getActivity()).getCurrentNotification();
 
             //for crate home button
             AppCompatActivity activity = (AppCompatActivity) getActivity();
@@ -57,6 +74,13 @@ public class testFragment extends Fragment {
                     getFragmentManager().popBackStack();
                 }
             });
+
+            title =(TextView) view.findViewById(R.id.title);
+            date = (TextView) view.findViewById(R.id.date);
+            description =(TextView) view.findViewById(R.id.description);
+            title.setText(notification.getTitle());
+            description.setText(notification.getDescription());
+            date.setText(notification.getDate());
 
             Window window = activity.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

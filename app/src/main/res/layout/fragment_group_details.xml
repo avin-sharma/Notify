@@ -25,6 +25,15 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="">
 
+            <TextView
+                android:id="@+id/group_members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Group Members"
+                android:layout_gravity="bottom|left"
+                android:layout_marginLeft="32dp"
+                android:layout_marginBottom="3dp"/>
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -55,7 +64,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/assignment_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini" />
+            app:fab_size="mini"
+            app:fab_label="Assignment"/>
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab2"
@@ -63,7 +73,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/test_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini" />
+            app:fab_size="mini"
+            app:fab_label="Test"/>
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab3"
@@ -71,7 +82,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/notification_grey_1x"
             app:fab_colorNormal="#FFFFFF"
-            app:fab_size="mini" />
+            app:fab_size="mini"
+            app:fab_label="Notification"/>
     </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>

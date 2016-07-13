@@ -11,6 +11,15 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 /**
@@ -18,6 +27,8 @@ import java.util.ArrayList;
  */
 public class GroupsFollowedFragment extends Fragment {
 
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     public GroupsFollowedFragment() {
         // Required empty public constructor
@@ -29,7 +40,8 @@ public class GroupsFollowedFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_groups_followed, container, false);
-        GroupsAdapter adapterTwo = new GroupsAdapter(view.getContext(), generateData());
+        ArrayList<Groups> groupsdata = new ArrayList<>();
+        GroupsAdapter adapterTwo = new GroupsAdapter(view.getContext(), groupsdata);
         ListView groupsFollowed = (ListView) view.findViewById(R.id.listview_groups_following);
         groupsFollowed.setAdapter(adapterTwo);
         groupsFollowed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,23 +54,44 @@ public class GroupsFollowedFragment extends Fragment {
             }
         });
 
+        groupsFollowed.setAdapter(generateData(adapterTwo));
         // Inflate the layout for this fragment
         return view;
     }
 
-    private ArrayList<Groups> generateData(){
-        ArrayList<Groups> items = new ArrayList<Groups>();
-        items.add(new Groups("Physics","First Item on the list"));
-        items.add(new Groups("Chemistry","Second Item on the list"));
-        items.add(new Groups("Maths","Third Item on the list"));
-        items.add(new Groups("Item 1","First Item on the list"));
-        items.add(new Groups("Item 2","Second Item on the list"));
-        items.add(new Groups("Item 3","Third Item on the list"));
-        items.add(new Groups("Item 1","First Item on the list"));
-        items.add(new Groups("Item 2","Second Item on the list"));
-        items.add(new Groups("Item 3","Third Item on the list"));
+    private GroupsAdapter generateData(final GroupsAdapter adapter) {
+        if(user != null) {
+            String Uid = user.getUid();
 
-        return items;
+            Query query = mDatabase.child("groups-followed").child(Uid);
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot i : dataSnapshot.getChildren()) {
+                        //Log.v("GroupDetailsFragment", i.getKey());
+                        mDatabase.child("groups").child(i.getKey()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Groups groups = dataSnapshot.getValue(Groups.class);
+                                adapter.add(groups);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+        return adapter;
+
     }
 
 }
